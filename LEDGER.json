@@ -1,0 +1,118 @@
+{
+  "version": "1.0",
+  "run_id": "YTT_20260705_1640",
+  "production_title": null,
+  "gate_actuelle": "PORTE_1_BRIEF",
+  "statut": "PRE_PRODUCTION",
+  "canonical_mode": "beta",
+  "etapes_completees": [],
+  "etapes_en_cours": [],
+  "etapes_restantes": [
+    "F01_RECON",
+    "F02_SCRIBE",
+    "F03_FORGE",
+    "CLOSE"
+  ],
+  "repo_root": "/home/user/youtube_transcriber",
+  "github_repo": null,
+  "frigates": {
+    "F01_RECON": {
+      "nom": "RECON",
+      "role": "Lister les vidéos d'une chaîne ou vidéo unique via yt-dlp",
+      "statut": "EN_ATTENTE",
+      "dependances": [],
+      "fichier": "frigates/RECON.py"
+    },
+    "F02_SCRIBE": {
+      "nom": "SCRIBE",
+      "role": "Extraire les transcripts avec timestamps via youtube-transcript-api",
+      "statut": "EN_ATTENTE",
+      "dependances": ["F01_RECON"],
+      "fichier": "frigates/SCRIBE.py"
+    },
+    "F03_FORGE": {
+      "nom": "FORGE",
+      "role": "Exporter en JSON/SRT/TXT selon le format choisi",
+      "statut": "EN_ATTENTE",
+      "dependances": ["F02_SCRIBE"],
+      "fichier": "frigates/FORGE.py"
+    }
+  },
+  "portes": {
+    "PORTE_1_BRIEF": {
+      "description": "Champion fournit l'URL cible, le format d'export et les options",
+      "statut": "EN_ATTENTE",
+      "inputs_attendus": ["url", "format_export", "options"]
+    },
+    "PORTE_2_RECON": {
+      "description": "Champion valide la liste des vidéos, filtre, exclut",
+      "statut": "VERROUILLEE",
+      "inputs_attendus": ["validation_liste", "exclusions"]
+    },
+    "PORTE_3_SCRIBE": {
+      "description": "Champion vérifie la qualité des transcripts, comble les gaps",
+      "statut": "VERROUILLEE",
+      "inputs_attendus": ["validation_qualite", "corrections"]
+    },
+    "PORTE_4_FORGE": {
+      "description": "Champion valide l'artefact final, publie",
+      "statut": "VERROUILLEE",
+      "inputs_attendus": ["validation_artefact", "publication"]
+    }
+  },
+  "artefacts": {},
+  "recon_meta": {
+    "videos_identifiees": 0,
+    "duree_totale_sec": 0,
+    "langues_detectees": [],
+    "videos_sans_transcript": 0
+  },
+  "scribe_meta": {
+    "transcripts_recuperes": 0,
+    "transcripts_echoues": 0,
+    "segments_totaux": 0,
+    "langues": []
+  },
+  "forge_meta": {
+    "format_export": null,
+    "taille_fichier_kb": 0,
+    "fichier_sortie": null
+  },
+  "options_production": {
+    "format_export": null,
+    "langue_preferee": null,
+    "filtrer_par_date": null,
+    "filtrer_par_duree_max": null,
+    "inclure_timestamps": true,
+    "delai_entre_requetes_sec": 2
+  },
+  "erreurs": [],
+  "derniere_mise_a_jour": "2026-07-05T18:10:00+01:00",
+  "instructions_cold_start": "Lire LEDGER.json pour l'etat courant. Lire PRD.md pour le cahier des charges. Chercher gate_actuelle pour savoir ou reprendre. Installer requirements.txt. Lancer l'orchestrateur: python orchestrator.py <url> [json|srt|txt] ou python orchestrator.py --resume",
+  "promotion": {
+    "source": null,
+    "promoted_at": null,
+    "reason": null,
+    "last_successful_runs": {}
+  },
+  "historique_sessions": [
+    {
+      "session_id": "YTT_20260705_1640",
+      "date": "2026-07-05T16:40:00+01:00",
+      "actions": [
+        "M0: Structure projet créée",
+        "M0: LEDGER.json, PRD.md, README.md, requirements.txt créés",
+        "M1: utils/validators.py codé",
+        "M1: frigates/RECON.py codé",
+        "M2: frigates/SCRIBE.py codé",
+        "M3: frigates/FORGE.py codé",
+        "M4: gates.py codé (4 portes)",
+        "M4: orchestrator.py codé (nerf central)",
+        "M5: utils/cache.py codé",
+        "M5: tests/test_transcriber.py codé (13 tests)",
+        "M5: Tests lancés — 13/13 passés"
+      ],
+      "statut_session": "ACTIVE"
+    }
+  ]
+}
