@@ -37,7 +37,7 @@ youtube_transcriber/
 ├── requirements.txt         Dépendances
 ├── orchestrator.py          Nerf central
 ├── gates.py                 Les 4 portes
-├── frigates/
+├── fregate/
 │   ├── RECON.py             F01: liste les vidéos (yt-dlp)
 │   ├── SCRIBE.py            F02: extrait les transcripts
 │   └── FORGE.py             F03: export JSON/SRT/TXT

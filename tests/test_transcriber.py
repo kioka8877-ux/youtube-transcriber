@@ -10,7 +10,7 @@ import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from utils.validators import validate_url, detect_url_type, validate_youtube_url, validate_tiktok_url
-from frigates import FORGE
+from fregate import FORGE
 
 
 # === Tests validators ===

@@ -9,7 +9,7 @@ from datetime import datetime
 from pathlib import Path
 
 from gates import PORTES, ORDRE_PORTES, ouvrir_porte, valider_porte, porte_suivante, portes_to_dict
-from frigates import RECON, SCRIBE, FORGE
+from fregate import RECON, SCRIBE, FORGE
 
 
 LEDGER_PATH = Path(__file__).parent / "LEDGER.json"
