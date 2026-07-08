@@ -35,18 +35,18 @@
     "CLOSE"
   ],
   "repo_root": "/home/user/youtube_transcriber",
-  "github_repo": null,
+  "github_repo": "https://github.com/kioka8877-ux/youtube-transcriber",
   "fregate": {
     "F01_RECON": {
       "nom": "RECON",
-      "role": "Lister les vidéos d'une chaîne ou vidéo unique via yt-dlp",
+      "role": "Lister les vidéos d'une chaîne ou vidéo unique via YouTube Data API v3 (fallback yt-dlp)",
       "statut": "EN_ATTENTE",
       "dependances": [],
       "fichier": "fregate/RECON.py"
     },
     "F02_SCRIBE": {
       "nom": "SCRIBE",
-      "role": "Extraire les transcripts avec timestamps via youtube-transcript-api",
+      "role": "Extraire les transcripts avec timestamps via youtube-transcript-api (retry 429, délai 3s)",
       "statut": "EN_ATTENTE",
       "dependances": [
         "F01_RECON"
@@ -123,7 +123,7 @@
     "filtrer_par_date": null,
     "filtrer_par_duree_max": null,
     "inclure_timestamps": true,
-    "delai_entre_requetes_sec": 2.0
+    "delai_entre_requetes_sec": 3.0
   },
   "erreurs": [],
   "derniere_mise_a_jour": "2026-07-08T07:52:12.390115+00:00",
