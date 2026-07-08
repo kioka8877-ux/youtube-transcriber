@@ -38,6 +38,9 @@ def list_channel_videos(channel_url: str) -> list[dict]:
     ]
     result = subprocess.run(cmd, capture_output=True, text=True, timeout=300)
 
+    if result.returncode != 0 or not result.stdout.strip():
+        print(f"   ⚠️ yt-dlp stderr: {result.stderr[:200] if result.stderr else 'vide'}")
+
     videos = []
     for line in result.stdout.strip().split("\n"):
         if not line:
@@ -57,11 +60,13 @@ def list_channel_videos(channel_url: str) -> list[dict]:
 def get_single_video(video_url: str) -> dict:
     """
     Récupère les métadonnées d'une vidéo unique via yt-dlp.
+    Fallback: extrait le video_id de l'URL si yt-dlp échoue.
     """
     cmd = [
         "yt-dlp",
         "--print", "%(id)s\t%(title)s\t%(url)s\t%(duration)s",
         "--no-warnings",
+        "--no-playlist",
         video_url,
     ]
     result = subprocess.run(cmd, capture_output=True, text=True, timeout=60)
@@ -74,7 +79,31 @@ def get_single_video(video_url: str) -> dict:
             "url": parts[2],
             "duration": float(parts[3]) if len(parts) > 3 and parts[3] != "NA" else None,
         }
+
+    # Fallback: extraire le video_id de l'URL directement
+    vid_id = _extract_video_id(video_url)
+    if vid_id:
+        return {
+            "video_id": vid_id,
+            "title": f"Video {vid_id}",
+            "url": f"https://www.youtube.com/watch?v={vid_id}",
+            "duration": None,
+        }
     return {}
+
+
+def _extract_video_id(url: str) -> str | None:
+    """Extrait le video_id d'une URL YouTube."""
+    import re
+    # youtube.com/watch?v=ID
+    m = re.search(r"[?&]v=([\w-]{11})", url)
+    if m:
+        return m.group(1)
+    # youtu.be/ID
+    m = re.search(r"youtu\.be/([\w-]{11})", url)
+    if m:
+        return m.group(1)
+    return None
 
 
 def run(url: str) -> dict:
