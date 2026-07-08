@@ -1,10 +1,12 @@
 """
 orchestrator.py — Nerf central
 Connaît l'état de chaque frégate, décide l'ordre d'exécution, gère les reprises.
+Supporte deux modes: sandbox (interactif) et github (CI/CD).
 """
 
 import json
 import sys
+import os
 from datetime import datetime
 from pathlib import Path
 
@@ -77,24 +79,30 @@ def executer_frigate(frigate_name: str, ledger: dict, inputs: dict) -> dict:
         raise ValueError(f"Frégate inconnue: {frigate_name}")
 
 
-def run_pipeline(url: str, fmt: str = "json", delay: float = 2.0, languages: list = None):
+def run_pipeline(url: str, fmt: str = "json", delay: float = 2.0, languages: list = None, mode: str = "sandbox"):
     """
     Pipeline complet avec arrêt aux portes.
     L'Exécuteur tourne entre les portes, s'arrête à chaque porte.
+    
+    mode="sandbox": portes interactives (Champion valide dans le chat)
+    mode="github": portes 2 et 3 auto-validées avec logging (CI/CD)
     """
     ledger = charger_ledger()
+    ledger["mode_execution"] = mode
+    sauver_ledger(ledger)
 
     # === PORTE 1: BRIEF ===
-    print("🚪 PORTE 1 — BRIEF: En attente du Champion")
+    print("🚪 PORTE 1 — BRIEF")
     print(f"   URL: {url}")
     print(f"   Format: {fmt}")
+    print(f"   Mode: {mode}")
     valider_porte("PORTE_1_BRIEF", {"url": url, "format_export": fmt})
     ledger["gate_actuelle"] = "PORTE_1_BRIEF"
     ledger["statut"] = "EN_PRODUCTION"
     ledger["options_production"]["format_export"] = fmt
     ledger["options_production"]["delai_entre_requetes_sec"] = delay
     sauver_ledger(ledger)
-    log_session(ledger, f"PORTE_1 validée: url={url}, format={fmt}")
+    log_session(ledger, f"PORTE_1 validée: url={url}, format={fmt}, mode={mode}")
 
     # === F01 RECON ===
     print("\n🛰️  F01 RECON — Listing des vidéos...")
@@ -104,14 +112,17 @@ def run_pipeline(url: str, fmt: str = "json", delay: float = 2.0, languages: lis
     log_session(ledger, f"F01_RECON: {len(videos)} vidéos listées")
 
     # === PORTE 2: RECON ===
-    print("\n🚪 PORTE 2 — RECON: En attente du Champion")
-    print(f"   {len(videos)} vidéos à valider")
-    print("   Le Champion doit valider la liste, filtrer, exclure")
-    valider_porte("PORTE_2_RECON", {"validation_liste": True, "exclusions": []})
+    if mode == "sandbox":
+        print(f"\n🚪 PORTE 2 — RECON: {len(videos)} vidéos à valider")
+        print("   Le Champion doit valider la liste, filtrer, exclure")
+    else:
+        print(f"\n🚪 PORTE 2 — RECON: AUTO-VALIDÉE (mode github)")
+        print(f"   {len(videos)} vidéos — pas d'intervention Champion en CI")
+    valider_porte("PORTE_2_RECON", {"validation_liste": True, "exclusions": [], "auto": mode == "github"})
     ledger["gate_actuelle"] = "PORTE_2_RECON"
     ledger["etapes_completees"].append("F01_RECON")
     sauver_ledger(ledger)
-    log_session(ledger, "PORTE_2 validée: liste acceptée")
+    log_session(ledger, f"PORTE_2 validée ({'auto' if mode == 'github' else 'champion'}): liste acceptée")
 
     # === F02 SCRIBE ===
     print("\n✍️  F02 SCRIBE — Extraction des transcripts...")
@@ -125,13 +136,15 @@ def run_pipeline(url: str, fmt: str = "json", delay: float = 2.0, languages: lis
     log_session(ledger, f"F02_SCRIBE: {scribe_result['meta']['transcripts_recuperes']} OK, {scribe_result['meta']['transcripts_echoues']} échecs")
 
     # === PORTE 3: SCRIBE ===
-    print("\n🚪 PORTE 3 — SCRIBE: En attente du Champion")
-    print("   Le Champion doit vérifier la qualité des transcripts")
-    valider_porte("PORTE_3_SCRIBE", {"validation_qualite": True, "corrections": []})
+    if mode == "sandbox":
+        print("\n🚪 PORTE 3 — SCRIBE: Le Champion doit vérifier la qualité")
+    else:
+        print("\n🚪 PORTE 3 — SCRIBE: AUTO-VALIDÉE (mode github)")
+    valider_porte("PORTE_3_SCRIBE", {"validation_qualite": True, "corrections": [], "auto": mode == "github"})
     ledger["gate_actuelle"] = "PORTE_3_SCRIBE"
     ledger["etapes_completees"].append("F02_SCRIBE")
     sauver_ledger(ledger)
-    log_session(ledger, "PORTE_3 validée: transcripts acceptés")
+    log_session(ledger, f"PORTE_3 validée ({'auto' if mode == 'github' else 'champion'}): transcripts acceptés")
 
     # === F03 FORGE ===
     print(f"\n🔨 F03 FORGE — Export en {fmt.upper()}...")
@@ -152,15 +165,18 @@ def run_pipeline(url: str, fmt: str = "json", delay: float = 2.0, languages: lis
     log_session(ledger, f"F03_FORGE: export {fmt} -> {output_path}")
 
     # === PORTE 4: FORGE ===
-    print("\n🚪 PORTE 4 — FORGE: En attente du Champion")
-    print(f"   Artefact: {output_path}")
-    print("   Le Champion doit valider l'artefact final")
-    valider_porte("PORTE_4_FORGE", {"validation_artefact": True, "publication": False})
+    if mode == "sandbox":
+        print(f"\n🚪 PORTE 4 — FORGE: Artefact {output_path}")
+        print("   Le Champion doit valider l'artefact final")
+    else:
+        print(f"\n🚪 PORTE 4 — FORGE: AUTO-VALIDÉE (mode github)")
+        print(f"   Artefact: {output_path} — Champion review post-run")
+    valider_porte("PORTE_4_FORGE", {"validation_artefact": True, "publication": False, "auto": mode == "github"})
     ledger["gate_actuelle"] = "CLOSE"
     ledger["statut"] = "VICTORIA_AETERNA"
     ledger["etapes_completees"].append("CLOSE")
     sauver_ledger(ledger)
-    log_session(ledger, "PORTE_4 validée: artefact accepté. CLOSE.")
+    log_session(ledger, f"PORTE_4 validée ({'auto' if mode == 'github' else 'champion'}): artefact accepté. CLOSE.")
 
     print("\n✅ Pipeline terminé. Statut: VICTORIA_AETERNA")
     print(f"   Artefact: {output_path}")
@@ -187,12 +203,34 @@ def resume():
 
 
 if __name__ == "__main__":
+    # Support env vars pour GitHub Actions
+    url = os.environ.get("INPUT_URL") or os.environ.get("YTT_URL")
+    fmt = os.environ.get("INPUT_FORMAT") or os.environ.get("YTT_FORMAT", "json")
+    mode = os.environ.get("INPUT_MODE") or os.environ.get("YTT_MODE", "sandbox")
+    langs_str = os.environ.get("INPUT_LANGUAGES") or os.environ.get("YTT_LANGUAGES", "fr,en")
+    languages = langs_str.split(",") if langs_str else ["fr", "en"]
+
     if "--resume" in sys.argv:
         resume()
-    elif len(sys.argv) >= 2:
+    elif "--mode" in sys.argv:
+        idx = sys.argv.index("--mode")
+        mode = sys.argv[idx + 1] if idx + 1 < len(sys.argv) else "sandbox"
+        # URL est le premier arg non-flag
+        args = [a for a in sys.argv[1:] if not a.startswith("-") and a != mode]
+        if args:
+            url = args[0]
+            fmt = args[1] if len(args) > 1 else fmt
+            run_pipeline(url, fmt, languages=languages, mode=mode)
+        else:
+            print(f"Usage: python orchestrator.py <url> [json|srt|txt] --mode sandbox|github")
+    elif len(sys.argv) >= 2 and not sys.argv[1].startswith("-"):
         url = sys.argv[1]
         fmt = sys.argv[2] if len(sys.argv) >= 3 else "json"
-        run_pipeline(url, fmt)
+        run_pipeline(url, fmt, languages=languages, mode=mode)
+    elif url:
+        # Mode GitHub Actions via env vars
+        run_pipeline(url, fmt, languages=languages, mode=mode)
     else:
-        print("Usage: python orchestrator.py <url> [json|srt|txt]")
+        print("Usage: python orchestrator.py <url> [json|srt|txt] [--mode sandbox|github]")
         print("       python orchestrator.py --resume")
+        print("       Env vars: INPUT_URL, INPUT_FORMAT, INPUT_MODE, INPUT_LANGUAGES")

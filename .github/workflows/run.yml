@@ -1,0 +1,68 @@
+name: YouTube Transcriber Pipeline
+
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: 'URL YouTube (vidéo ou chaîne)'
+        required: true
+        default: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+      format:
+        description: 'Format d export (json, srt, txt)'
+        required: true
+        default: 'txt'
+        type: choice
+        options:
+          - json
+          - srt
+          - txt
+      languages:
+        description: 'Langues (séparées par virgule, ex: en,fr)'
+        required: false
+        default: 'en,fr'
+
+jobs:
+  run-pipeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: 📥 Checkout du repo
+        uses: actions/checkout@v4
+
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 📦 Installation des dépendances
+        run: pip install -r requirements.txt
+
+      - name: 🚀 Lancement du pipeline (mode github)
+        env:
+          INPUT_URL: ${{ github.event.inputs.url }}
+          INPUT_FORMAT: ${{ github.event.inputs.format }}
+          INPUT_LANGUAGES: ${{ github.event.inputs.languages }}
+          INPUT_MODE: github
+        run: python orchestrator.py
+
+      - name: 📎 Upload de l'artefact
+        uses: actions/upload-artifact@v4
+        with:
+          name: transcripts-${{ github.event.inputs.format }}
+          path: exports/transcripts.*
+          if-no-files-found: error
+
+      - name: 📋 Upload du LEDGER
+        uses: actions/upload-artifact@v4
+        with:
+          name: ledger
+          path: LEDGER.json
+
+      - name: 💾 Commit du LEDGER sur le repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add LEDGER.json exports/transcripts.*
+          git commit -m "🤖 Pipeline run: ${{ github.event.inputs.url }} [${{ github.event.inputs.format }}]" || echo "Rien à committer"
+          git push

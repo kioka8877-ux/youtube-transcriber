@@ -1,11 +1,16 @@
 {
   "version": "1.0",
   "run_id": "YTT_20260705_1640",
-  "production_title": null,
-  "gate_actuelle": "PORTE_1_BRIEF",
-  "statut": "PRE_PRODUCTION",
+  "production_title": "Start a Profitable SaaS with $0 in 2026 (full guide / step-by-step)",
+  "gate_actuelle": "CLOSE",
+  "statut": "VICTORIA_AETERNA",
   "canonical_mode": "beta",
-  "etapes_completees": [],
+  "etapes_completees": [
+    "F01_RECON",
+    "F02_SCRIBE",
+    "F03_FORGE",
+    "CLOSE"
+  ],
   "etapes_en_cours": [],
   "etapes_restantes": [
     "F01_RECON",
@@ -27,14 +32,18 @@
       "nom": "SCRIBE",
       "role": "Extraire les transcripts avec timestamps via youtube-transcript-api",
       "statut": "EN_ATTENTE",
-      "dependances": ["F01_RECON"],
+      "dependances": [
+        "F01_RECON"
+      ],
       "fichier": "fregate/SCRIBE.py"
     },
     "F03_FORGE": {
       "nom": "FORGE",
       "role": "Exporter en JSON/SRT/TXT selon le format choisi",
       "statut": "EN_ATTENTE",
-      "dependances": ["F02_SCRIBE"],
+      "dependances": [
+        "F02_SCRIBE"
+      ],
       "fichier": "fregate/FORGE.py"
     }
   },
@@ -42,52 +51,66 @@
     "PORTE_1_BRIEF": {
       "description": "Champion fournit l'URL cible, le format d'export et les options",
       "statut": "EN_ATTENTE",
-      "inputs_attendus": ["url", "format_export", "options"]
+      "inputs_attendus": [
+        "url",
+        "format_export",
+        "options"
+      ]
     },
     "PORTE_2_RECON": {
       "description": "Champion valide la liste des vidéos, filtre, exclut",
       "statut": "VERROUILLEE",
-      "inputs_attendus": ["validation_liste", "exclusions"]
+      "inputs_attendus": [
+        "validation_liste",
+        "exclusions"
+      ]
     },
     "PORTE_3_SCRIBE": {
       "description": "Champion vérifie la qualité des transcripts, comble les gaps",
       "statut": "VERROUILLEE",
-      "inputs_attendus": ["validation_qualite", "corrections"]
+      "inputs_attendus": [
+        "validation_qualite",
+        "corrections"
+      ]
     },
     "PORTE_4_FORGE": {
       "description": "Champion valide l'artefact final, publie",
       "statut": "VERROUILLEE",
-      "inputs_attendus": ["validation_artefact", "publication"]
+      "inputs_attendus": [
+        "validation_artefact",
+        "publication"
+      ]
     }
   },
-  "artefacts": {},
+  "artefacts": {
+    "export_final": "/home/user/youtube_transcriber/exports/transcripts.txt"
+  },
   "recon_meta": {
-    "videos_identifiees": 0,
-    "duree_totale_sec": 0,
-    "langues_detectees": [],
-    "videos_sans_transcript": 0
+    "source_url": "https://www.youtube.com/watch?v=tE-40mTcZfk",
+    "video_count": 1,
+    "duree_totale_sec": 1565.0
   },
   "scribe_meta": {
-    "transcripts_recuperes": 0,
+    "transcripts_recuperes": 1,
     "transcripts_echoues": 0,
-    "segments_totaux": 0,
+    "segments_totaux": 737,
     "langues": []
   },
   "forge_meta": {
-    "format_export": null,
-    "taille_fichier_kb": 0,
-    "fichier_sortie": null
+    "format_export": "txt",
+    "taille_fichier_kb": 27.54,
+    "fichier_sortie": "transcripts.txt"
   },
   "options_production": {
-    "format_export": null,
+    "format_export": "txt",
     "langue_preferee": null,
     "filtrer_par_date": null,
     "filtrer_par_duree_max": null,
     "inclure_timestamps": true,
-    "delai_entre_requetes_sec": 2
+    "delai_entre_requetes_sec": 2.0
   },
   "erreurs": [],
-  "derniere_mise_a_jour": "2026-07-05T18:10:00+01:00",
+  "derniere_mise_a_jour": "2026-07-08T07:34:15.473909+00:00",
   "instructions_cold_start": "Lire LEDGER.json pour l'etat courant. Lire PRD.md pour le cahier des charges. Chercher gate_actuelle pour savoir ou reprendre. Installer requirements.txt. Lancer l'orchestrateur: python orchestrator.py <url> [json|srt|txt] ou python orchestrator.py --resume",
   "promotion": {
     "source": null,
@@ -110,9 +133,30 @@
         "M4: orchestrator.py codé (nerf central)",
         "M5: utils/cache.py codé",
         "M5: tests/test_transcriber.py codé (13 tests)",
-        "M5: Tests lancés — 13/13 passés"
+        "M5: Tests lancés — 13/13 passés",
+        "PORTE_1 validée: url=https://www.youtube.com/watch?v=tE-40mTcZfk, format=txt, mode=sandbox",
+        "F01_RECON: 1 vidéos listées",
+        "PORTE_2 validée (champion): liste acceptée",
+        "F02_SCRIBE: 1 OK, 0 échecs",
+        "PORTE_3 validée (champion): transcripts acceptés",
+        "F03_FORGE: export txt -> /home/user/youtube_transcriber/exports/transcripts.txt",
+        "PORTE_4 validée (champion): artefact accepté. CLOSE.",
+        "PORTE_1 validée: url=https://www.youtube.com/watch?v=tE-40mTcZfk, format=txt, mode=github",
+        "F01_RECON: 1 vidéos listées",
+        "PORTE_2 validée (auto): liste acceptée",
+        "F02_SCRIBE: 1 OK, 0 échecs",
+        "PORTE_3 validée (auto): transcripts acceptés",
+        "F03_FORGE: export txt -> /home/user/youtube_transcriber/exports/transcripts.txt",
+        "PORTE_4 validée (auto): artefact accepté. CLOSE."
       ],
       "statut_session": "ACTIVE"
     }
-  ]
+  ],
+  "territory": {
+    "url_cible": "https://www.youtube.com/watch?v=tE-40mTcZfk",
+    "type": null,
+    "channel_name": null,
+    "video_count": 1
+  },
+  "mode_execution": "github"
 }
