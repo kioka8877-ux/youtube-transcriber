@@ -13,6 +13,10 @@
     "F01_RECON",
     "F02_SCRIBE",
     "F03_FORGE",
+    "CLOSE",
+    "F01_RECON",
+    "F02_SCRIBE",
+    "F03_FORGE",
     "CLOSE"
   ],
   "etapes_en_cours": [],
@@ -114,7 +118,7 @@
     "delai_entre_requetes_sec": 2.0
   },
   "erreurs": [],
-  "derniere_mise_a_jour": "2026-07-08T07:38:25.808647+00:00",
+  "derniere_mise_a_jour": "2026-07-08T07:46:47.342872+00:00",
   "instructions_cold_start": "Lire LEDGER.json pour l'etat courant. Lire PRD.md pour le cahier des charges. Chercher gate_actuelle pour savoir ou reprendre. Installer requirements.txt. Lancer l'orchestrateur: python orchestrator.py <url> [json|srt|txt] ou python orchestrator.py --resume",
   "promotion": {
     "source": null,
@@ -151,6 +155,13 @@
         "F02_SCRIBE: 1 OK, 0 échecs",
         "PORTE_3 validée (auto): transcripts acceptés",
         "F03_FORGE: export txt -> /home/user/youtube_transcriber/exports/transcripts.txt",
+        "PORTE_4 validée (auto): artefact accepté. CLOSE.",
+        "PORTE_1 validée: url=https://www.youtube.com/watch?v=tE-40mTcZfk, format=txt, mode=github",
+        "F01_RECON: 0 vidéos listées",
+        "PORTE_2 validée (auto): liste acceptée",
+        "F02_SCRIBE: 0 OK, 0 échecs",
+        "PORTE_3 validée (auto): transcripts acceptés",
+        "F03_FORGE: export txt -> /home/runner/work/youtube-transcriber/youtube-transcriber/exports/transcripts.txt",
         "PORTE_4 validée (auto): artefact accepté. CLOSE.",
         "PORTE_1 validée: url=https://www.youtube.com/watch?v=tE-40mTcZfk, format=txt, mode=github",
         "F01_RECON: 0 vidéos listées",
