@@ -1,0 +1,199 @@
+{
+  "etape": "VICTORIA_AETERNA",
+  "total_videos": 128,
+  "scribe_progress": 128,
+  "success": 91,
+  "fail": 37,
+  "segments": 41048,
+  "errors": [
+    {
+      "video_id": "eTPA8BNJMkw",
+      "title": "Ilvermorny Wizarding School Origins & Houses EXPLAINED in Detail",
+      "error": "yt-dlp: no subtitle file. stderr: ERROR: [youtube] eTPA8BNJMkw: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-"
+    },
+    {
+      "video_id": "KEM5ikUqH2g",
+      "title": "ALL 5 Wizarding Wars in Harry Potter EXPLAINED in Detail",
+      "error": "yt-dlp: no subtitle file. stderr: ERROR: [youtube] KEM5ikUqH2g: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-"
+    },
+    {
+      "video_id": "x0uGQ072EEA",
+      "title": "The 6 Levels of MAGIC Sensitivity in Harry Potter",
+      "error": "yt-dlp: no subtitle file. stderr: ERROR: [youtube] x0uGQ072EEA: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-"
+    },
+    {
+      "video_id": "G2btBQeq5SA",
+      "title": "Nagini’s Dark & TRAGIC Story (+ How She Met Voldemort) EXPLAINED in Detail",
+      "error": "yt-dlp: no subtitle file. stderr: ERROR: [youtube] G2btBQeq5SA: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-"
+    },
+    {
+      "video_id": "3buSfoVDj_0",
+      "title": "The 7 Levels of Magical Punishments in Harry Potter",
+      "error": "yt-dlp: no subtitle file. stderr: ERROR: [youtube] 3buSfoVDj_0: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-"
+    },
+    {
+      "video_id": "AZLScafCqqI",
+      "title": "The BIGGEST Plot Holes in Harry Potter EXPLAINED in Detail",
+      "error": "yt-dlp: no subtitle file. stderr: ERROR: [youtube] AZLScafCqqI: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-"
+    },
+    {
+      "video_id": "0LtUA2EvBB4",
+      "title": "All 14 CONTROVERSIAL Masters of the Elder Wand EXPLAINED in Detail",
+      "error": "yt-dlp: no subtitle file. stderr: ERROR: [youtube] 0LtUA2EvBB4: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-"
+    },
+    {
+      "video_id": "jHf-vw1IcA0",
+      "title": "Most TERRIFYING Prisons & Their PUNISHMENTS in Harry Potter EXPLAINED in Detail",
+      "error": "yt-dlp: no subtitle file. stderr: ERROR: [youtube] jHf-vw1IcA0: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-"
+    },
+    {
+      "video_id": "3LnnGGku6SQ",
+      "title": "The 7 Levels of SPELLS in Harry Potter",
+      "error": "yt-dlp: no subtitle file. stderr: ERROR: [youtube] 3LnnGGku6SQ: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-"
+    },
+    {
+      "video_id": "rgAuR1EFLPw",
+      "title": "Every OFFICIAL Wand WOOD and CORE in Harry Potter EXPLAINED in Detail",
+      "error": "yt-dlp: no subtitle file. stderr: ERROR: [youtube] rgAuR1EFLPw: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-"
+    },
+    {
+      "video_id": "E9dp5KsBBA8",
+      "title": "Every HIDDEN Glitch in Harry Potter EXPLAINED in Detail",
+      "error": "yt-dlp: no subtitle file. stderr: ERROR: [youtube] E9dp5KsBBA8: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-"
+    },
+    {
+      "video_id": "t_ohkRl_Uyw",
+      "title": "The Most Forbidden Places in Harry Potter You’re NOT Allowed to Visit EXPLAINED in Detail",
+      "error": "yt-dlp: no subtitle file. stderr: ERROR: [youtube] t_ohkRl_Uyw: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-"
+    },
+    {
+      "video_id": "VA_6iBvGmDM",
+      "title": "Every IMPOSSIBLE Harry Potter Theory That Came TRUE Explained In Detail",
+      "error": "yt-dlp: no subtitle file. stderr: ERROR: [youtube] VA_6iBvGmDM: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-"
+    },
+    {
+      "video_id": "zPPEaoqGHKQ",
+      "title": "The Most HATED Bloodlines in Harry Potter EXPLAINED in Detail",
+      "error": "yt-dlp: no subtitle file. stderr: ERROR: [youtube] zPPEaoqGHKQ: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-"
+    },
+    {
+      "video_id": "et38ItrXfO8",
+      "title": "Every Level of MAGIC in Harry Potter EXPLAINED in 12 Minutes",
+      "error": "yt-dlp: no subtitle file. stderr: ERROR: [youtube] et38ItrXfO8: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-"
+    },
+    {
+      "video_id": "7vJGRyafbwA",
+      "title": "Most Loved VS Most Hated Harry Potter Characters EXPLAINED in Detail",
+      "error": "yt-dlp: no subtitle file. stderr: ERROR: [youtube] 7vJGRyafbwA: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-"
+    },
+    {
+      "video_id": "N7ohUggmilY",
+      "title": "Every TRAITOR in Harry Potter Who Was Actually RIGHT EXPLAINED in Detail",
+      "error": "yt-dlp: no subtitle file. stderr: ERROR: [youtube] N7ohUggmilY: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-"
+    },
+    {
+      "video_id": "faVNxaXq-So",
+      "title": "The Worst PUNISHMENTS in Harry Potter EXPLAINED in Detail",
+      "error": "yt-dlp: no subtitle file. stderr: ERROR: [youtube] faVNxaXq-So: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-"
+    },
+    {
+      "video_id": "fOrRZ8b9oWo",
+      "title": "All 11 Wizarding Schools in Harry Potter EXPLAINED in Detail",
+      "error": "yt-dlp: no subtitle file. stderr: ERROR: [youtube] fOrRZ8b9oWo: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-"
+    },
+    {
+      "video_id": "2liSklTSJj0",
+      "title": "The Most Unsolved Mysteries in Harry Potter EXPLAINED in Detail",
+      "error": "yt-dlp: no subtitle file. stderr: ERROR: [youtube] 2liSklTSJj0: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-"
+    },
+    {
+      "video_id": "pzIzINs6RrI",
+      "title": "Every Type of Potion in Harry Potter EXPLAINED in Detail",
+      "error": "yt-dlp: no subtitle file. stderr: ERROR: [youtube] pzIzINs6RrI: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-"
+    },
+    {
+      "video_id": "e0H4SfIFlZA",
+      "title": "Every Magical JOB in Harry Potter EXPLAINED in Detail",
+      "error": "yt-dlp: no subtitle file. stderr: ERROR: [youtube] e0H4SfIFlZA: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-"
+    },
+    {
+      "video_id": "xWoI1UPYI_s",
+      "title": "Every Type of ANCIENT Spell in Harry Potter EXPLAINED in Detail",
+      "error": "yt-dlp: no subtitle file. stderr: ERROR: [youtube] xWoI1UPYI_s: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-"
+    },
+    {
+      "video_id": "Rzn6Ra4kGIQ",
+      "title": "Every Type of BLOODLINE in Harry Potter EXPLAINED in Detail",
+      "error": "yt-dlp: no subtitle file. stderr: ERROR: [youtube] Rzn6Ra4kGIQ: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-"
+    },
+    {
+      "video_id": "bZy1MiHB6eE",
+      "title": "Every CRAZY Harry Potter Theory That's Actually TRUE Explained In Detail",
+      "error": "yt-dlp: no subtitle file. stderr: ERROR: [youtube] bZy1MiHB6eE: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-"
+    },
+    {
+      "video_id": "sPq2n2Kl2R4",
+      "title": "The Most DANGEROUS Wands in Harry Potter EXPLAINED in Detail",
+      "error": "yt-dlp: no subtitle file. stderr: ERROR: [youtube] sPq2n2Kl2R4: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-"
+    },
+    {
+      "video_id": "smFPIg1__j0",
+      "title": "Every Type of DARK Spell in Harry Potter EXPLAINED In Detail",
+      "error": "yt-dlp: no subtitle file. stderr: ERROR: [youtube] smFPIg1__j0: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-"
+    },
+    {
+      "video_id": "1NtWc9Dv3Ss",
+      "title": "Every DEADLY Spell in Harry Potter Explained In Detail",
+      "error": "yt-dlp: no subtitle file. stderr: ERROR: [youtube] 1NtWc9Dv3Ss: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-"
+    },
+    {
+      "video_id": "I4x1sduBWXY",
+      "title": "Every Harry Potter Character The Movies Got WRONG Explained In Detail",
+      "error": "yt-dlp: no subtitle file. stderr: ERROR: [youtube] I4x1sduBWXY: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-"
+    },
+    {
+      "video_id": "g-erHQs6Rl4",
+      "title": "Every LEGENDARY Patronus Form in Harry Potter EXPLAINED in Detail!",
+      "error": "yt-dlp: no subtitle file. stderr: ERROR: [youtube] g-erHQs6Rl4: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-"
+    },
+    {
+      "video_id": "kchZ3dXhApY",
+      "title": "Every SPELL Used to Protect Hogwarts in Deathly Hallows EXPLAINED in Detail",
+      "error": "yt-dlp: no subtitle file. stderr: ERROR: [youtube] kchZ3dXhApY: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-"
+    },
+    {
+      "video_id": "c-5DOGbRaUE",
+      "title": "Every MAGICAL Creature In Harry Potter EXPLAINED in Detail",
+      "error": "yt-dlp: no subtitle file. stderr: ERROR: [youtube] c-5DOGbRaUE: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-"
+    },
+    {
+      "video_id": "yZcF_uFGzvk",
+      "title": "Every Wizarding SHOP in Harry Potter — Diagon Alley EXPLAINED in Detail",
+      "error": "yt-dlp: no subtitle file. stderr: ERROR: [youtube] yZcF_uFGzvk: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-"
+    },
+    {
+      "video_id": "qK-6BxM1xso",
+      "title": "Every Potion In Harry Potter EXPLAINED in Detail",
+      "error": "yt-dlp: no subtitle file. stderr: ERROR: [youtube] qK-6BxM1xso: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-"
+    },
+    {
+      "video_id": "sIKlzWJp4cg",
+      "title": "All 7 Dark & FORBIDDEN Spells SNAPE Created EXPLAINED in Detail",
+      "error": "yt-dlp: no subtitle file. stderr: ERROR: [youtube] sIKlzWJp4cg: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-"
+    },
+    {
+      "video_id": "rU0DwUYI7Bc",
+      "title": "Every Wizarding PRISON in Harry Potter EXPLAINED in Detail",
+      "error": "yt-dlp: no subtitle file. stderr: ERROR: [youtube] rU0DwUYI7Bc: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-"
+    },
+    {
+      "video_id": "rdKgHCog8Ok",
+      "title": "Every Type of Spell in Harry Potter EXPLAINED In detail",
+      "error": "yt-dlp: no subtitle file. stderr: ERROR: [youtube] rdKgHCog8Ok: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-"
+    }
+  ],
+  "started_at": "2026-07-08T11:08:46.733493+00:00",
+  "forge_size_kb": 1524.96,
+  "forge_file": "/home/user/youtube-transcriber/exports/transcripts.txt",
+  "finished_at": "2026-07-08T11:18:44.586622+00:00"
+}

@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "run_id": "YTT_20260705_1640",
-  "production_title": "Start a Profitable SaaS with $0 in 2026 (full guide / step-by-step)",
+  "production_title": "Stickman Hogwarts — Chaîne complète (128 vidéos)",
   "gate_actuelle": "CLOSE",
   "statut": "VICTORIA_AETERNA",
   "canonical_mode": "beta",
@@ -99,23 +99,21 @@
     }
   },
   "artefacts": {
-    "export_final": "/home/runner/work/youtube-transcriber/youtube-transcriber/exports/transcripts.txt"
+    "export_final": "exports/transcripts.txt"
   },
   "recon_meta": {
-    "source_url": "https://www.youtube.com/watch?v=tE-40mTcZfk",
-    "video_count": 1,
-    "duree_totale_sec": 0
+    "videos_identifiees": 128,
+    "duree_totale_sec": 117309
   },
   "scribe_meta": {
-    "transcripts_recuperes": 0,
-    "transcripts_echoues": 1,
-    "segments_totaux": 0,
-    "langues": []
+    "transcripts_recuperes": 91,
+    "transcripts_echoues": 37,
+    "segments_totaux": 41048
   },
   "forge_meta": {
     "format_export": "txt",
-    "taille_fichier_kb": 0.0,
-    "fichier_sortie": "transcripts.txt"
+    "taille_fichier_kb": 1524.96,
+    "fichier_sortie": "exports/transcripts.txt"
   },
   "options_production": {
     "format_export": "txt",
@@ -126,7 +124,7 @@
     "delai_entre_requetes_sec": 3.0
   },
   "erreurs": [],
-  "derniere_mise_a_jour": "2026-07-08T07:52:12.390115+00:00",
+  "derniere_mise_a_jour": "2026-07-08T11:43:15.241283+00:00",
   "instructions_cold_start": "Lire LEDGER.json pour l'etat courant. Lire PRD.md pour le cahier des charges. Chercher gate_actuelle pour savoir ou reprendre. Installer requirements.txt. Lancer l'orchestrateur: python orchestrator.py <url> [json|srt|txt] ou python orchestrator.py --resume",
   "promotion": {
     "source": null,
@@ -194,6 +192,20 @@
         "PORTE_4 validée (auto): artefact accepté. CLOSE."
       ],
       "statut_session": "ACTIVE"
+    },
+    {
+      "session_id": "YTT_20260708_1143",
+      "date": "2026-07-08T11:43:15.241358+00:00",
+      "actions": [
+        "PORTE_1 validée: url=https://www.youtube.com/@StickmanHogwarts, format=txt, mode=sandbox",
+        "F01_RECON: 128 vidéos listées via YouTube Data API v3",
+        "PORTE_2 validée (champion): liste acceptée",
+        "F02_SCRIBE: 91 OK, 37 échecs (yt-dlp subtitles)",
+        "PORTE_3 validée (champion): transcripts acceptés",
+        "F03_FORGE: export txt -> exports/transcripts.txt (1524.96 KB)",
+        "PORTE_4 validée (champion): artefact accepté. CLOSE."
+      ],
+      "statut_session": "CLOSE"
     }
   ],
   "territory": {
@@ -202,5 +214,5 @@
     "channel_name": null,
     "video_count": 1
   },
-  "mode_execution": "github"
+  "mode_execution": "sandbox"
 }
