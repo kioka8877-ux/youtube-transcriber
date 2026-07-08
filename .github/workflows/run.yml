@@ -25,6 +25,8 @@ jobs:
   run-pipeline:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    permissions:
+      contents: write
 
     steps:
       - name: 📥 Checkout du repo
@@ -60,6 +62,8 @@ jobs:
           path: LEDGER.json
 
       - name: 💾 Commit du LEDGER sur le repo
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
