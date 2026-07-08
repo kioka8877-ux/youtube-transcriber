@@ -1,5 +1,2 @@
 .cache/
 __pycache__/
-exports/*.json
-exports/*.srt
-exports/*.txt
